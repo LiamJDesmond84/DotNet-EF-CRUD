@@ -1,3 +1,4 @@
+using DotNet_EF_CRUD.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
