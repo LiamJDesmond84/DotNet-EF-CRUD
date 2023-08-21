@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DotNet_EF_CRUD.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNet_EF_CRUD.Controllers;
 
@@ -8,9 +9,12 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private MyContext _dbContext;
+
+    public HomeController(MyContext context, ILogger<HomeController> logger)
     {
         _logger = logger;
+        _dbContext = context;
     }
 
     public IActionResult Index()
