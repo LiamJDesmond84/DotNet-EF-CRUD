@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using DotNet_EF_CRUD.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DotNet_EF_CRUD.Controllers;
 
@@ -22,7 +23,6 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpGet("Form")]
     public IActionResult Form()
     {
         return View();
@@ -35,15 +35,15 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    [HttpPost("SubmitRecipe")]
     public IActionResult SubmitRecipe(Dish dish)
     {
         Debug.WriteLine(dish.Name);
         Debug.WriteLine(dish.Chef);
+        Debug.WriteLine(dish.Tastiness);
         Debug.WriteLine(dish.Calories);
         Debug.WriteLine(dish.Description);
 
-        return View();
+        return RedirectToAction("Index");
     }
 
 }
