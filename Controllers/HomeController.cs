@@ -22,7 +22,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpGet]
+    [HttpGet("Form")]
     public IActionResult Form()
     {
         return View();
@@ -35,9 +35,13 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    [HttpPost("SubmitRecipe")]
     public IActionResult SubmitRecipe(Dish dish)
     {
         Debug.WriteLine(dish.Name);
+        Debug.WriteLine(dish.Chef);
+        Debug.WriteLine(dish.Calories);
+        Debug.WriteLine(dish.Description);
 
         return View();
     }
