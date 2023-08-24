@@ -21,8 +21,8 @@ public class HomeController : Controller
     public IActionResult Index()
     {
 
-        Dish dish = _dbContext.Dishes.FirstOrDefault(x => x.Id);
-        return View();
+        List<Dish> dishes = _dbContext.Dishes.ToList();
+        return View(dishes);
     }
 
     public IActionResult Form()
