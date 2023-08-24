@@ -37,6 +37,9 @@ public class HomeController : Controller
 
     public IActionResult SubmitRecipe(Dish dish)
     {
+
+        _dbContext.Add(dish);
+        _dbContext.SaveChanges();
         Debug.WriteLine(dish.Name);
         Debug.WriteLine(dish.Chef);
         Debug.WriteLine(dish.Tastiness);
