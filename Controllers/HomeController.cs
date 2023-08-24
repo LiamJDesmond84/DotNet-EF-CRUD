@@ -20,6 +20,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+
+        Dish dish = _dbContext.Dishes.FirstOrDefault(x => x.Id);
         return View();
     }
 
