@@ -5,15 +5,16 @@
     <h1 class="display-4">Welcome</h1>
     <h1>Welcome Sucka!</h1>
 
-    <div style="display: flex; flex-direction: row; justify-content: center; color: blue">
+    <div style="display: flex; flex-direction: row; justify-content: center; color: green">
         <p style="margin-right: 50px">Recent Dishes</p>
         <a asp-controller="Home" asp-action="Form">Add a Dish</a>
     </div>
 
     <ul style="list-style-type: none">
-        <hr style="width: 300px; margin: auto"/>
+
         @foreach (var x in Model)
         {
+            <hr style="width: 300px; margin: auto" />
             <li>@x.Name</li>
             <li>@x.Tastiness</li>
             <li>@x.Calories</li>

@@ -1,5 +1,11 @@
 ﻿@model DotNet_EF_CRUD.Models.Dish
 <div>
+    <div style="display: flex; flex-direction: row; justify-content: center; color: green">
+    <h1></h1>
+        <p style="margin-right: 50px">Add a Dish</p>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </div>
+    <a asp-controller="Home" asp-action="Index">Home</a>
     <form asp-action="SubmitRecipe" asp-controller="Home" method="post">
         <span asp-validation-for="Name"></span>
         <label asp-for="Name">Your Name</label>
