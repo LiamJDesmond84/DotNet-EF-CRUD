@@ -10,7 +10,7 @@
         <a asp-controller="Home" asp-action="Form">Add a Dish</a>
     </div>
 
-    <ul>
+    <ul style="list-style-type: none">
         @foreach (var x in Model)
         {
             <li>@x.Name</li>
