@@ -1,4 +1,5 @@
-﻿@model DotNet_EF_CRUD.Models.Dish
+﻿@model List<Dish>
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
@@ -9,11 +10,15 @@
         <a href="/form">Add a Dish</a>
     </div>
     <ul>
-        <li>@Model.Name</li>
-        <li>@Model.Tastiness</li>
-        <li>@Model.Calories</li>
-        <li>@Model.Tastiness</li>
-        <li>@Model.Description</li>
+        @foreach (var x in Model)
+        {
+            <li>@x.Name</li>
+            <li>@x.Tastiness</li>
+            <li>@x.Calories</li>
+            <li>@x.Tastiness</li>
+            <li>@x.Description</li>
+        }
+
     </ul>
 
 
