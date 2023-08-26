@@ -74,9 +74,13 @@ public class HomeController : Controller
         Dish? currentDish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
 
 
-        currentDish = dish;
-
+        currentDish.Name = dish.Name;
+        currentDish.Chef = dish.Chef;
+        currentDish.Calories = dish.Calories;
+        currentDish.Tastiness = dish.Tastiness;
+        currentDish.Description = dish.Description;
         dish.UpdatedAt = DateTime.Now;
+
         _dbContext.SaveChanges();
         return RedirectToAction("Index");
 
