@@ -51,11 +51,12 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpGet]
+    [HttpGet("/{dishId}")]
     public IActionResult ViewDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
 
+        return View(dish);
     }
 
 }
