@@ -67,4 +67,18 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPut("/Home/EditDish/{dishId}")]
+    public IActionResult UpdateDish(int dishId, Dish dish)
+    {
+        Dish? currentDish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+
+
+        currentDish = dish;
+
+        dish.UpdatedAt = DateTime.Now;
+        _dbContext.SaveChanges();
+        return RedirectToAction("Index");
+
+    }
+
 }
