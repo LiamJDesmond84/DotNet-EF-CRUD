@@ -56,7 +56,7 @@ public class HomeController : Controller
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
 
-        return View(dish);
+        return View("ViewDish", dish);
     }
 
 }
