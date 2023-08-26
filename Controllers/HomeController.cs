@@ -51,7 +51,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpGet("/ViewDish/{dishId}")]
+    [HttpGet("/Home/ViewDish/{dishId}")]
     public IActionResult ViewDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
