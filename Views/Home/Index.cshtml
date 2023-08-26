@@ -16,12 +16,12 @@
         {
             <hr style="width: 300px; margin: auto" />
             <li>@x.Name</li>
-            <li>@x.Tastiness</li>
+            <li>@x.Chef</li>
             <li>@x.Calories</li>
             <li>@x.Tastiness</li>
             <li>@x.Description</li>
             <li><a asp-controller="Home" asp-action="ViewDish" asp-route-id="@x.Id">View</a></li>
-            <li><a asp-controller="Home" asp-action="EditDish" asp-route-id="@x.Id">View</a></li>
+            <li><a asp-controller="Home" asp-action="EditDish" asp-route-id="@x.Id">Edit</a></li>
         }
 
     </ul>
