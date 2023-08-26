@@ -51,8 +51,8 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
-    // FIX THIS
-    [HttpGet("/Home/ViewDish/{dishId}")]
+    // FIX THIS - https://www.tutorialsteacher.com/mvc/routing-in-mvc
+    [HttpGet("/{dishId}")]
     public IActionResult ViewDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
