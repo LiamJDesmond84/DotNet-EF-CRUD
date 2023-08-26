@@ -9,15 +9,16 @@
     <form asp-action="SubmitRecipe" asp-controller="Home" method="post">
         <span asp-validation-for="Name"></span>
         <label asp-for="Name">Your Name</label>
-        <input asp-for="Name" type="text" />
+        <input asp-for="Name" type="text" value="@Model.Name"/>
 
         <span asp-validation-for="Chef"></span>
         <label asp-for="Chef">Chef</label>
-        <input asp-for="Chef" type="text" />
+        <input asp-for="Chef" type="text" value="@Model.Chef" />
 
         <span asp-validation-for="Tastiness"></span>
         <label asp-for="Tastiness">Tastiness:</label>
-        <select asp-for="Tastiness">
+        <select asp-for="Tastiness" >
+            <option value="@Model.Tastiness">@Model.Tastiness</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
