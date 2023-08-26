@@ -60,7 +60,8 @@ public class HomeController : Controller
         return View(dish);
     }
 
-    public IActionResult EditDish(int id)
+    [HttpGet("/Home/EditDish/{dishId}")]
+    public IActionResult EditDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
         return View();
