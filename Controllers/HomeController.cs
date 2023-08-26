@@ -51,6 +51,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
+    // FIX THIS
     [HttpGet("/Home/ViewDish/{dishId}")]
     public IActionResult ViewDish(int dishId)
     {
