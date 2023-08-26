@@ -6,7 +6,7 @@
         <a asp-controller="Home" asp-action="Index">Home</a>
     </div>
     <a asp-controller="Home" asp-action="Index">Home</a>
-    <form asp-action="UpdateRecipe/@Model.Id" asp-controller="Home" method="post">
+    <form asp-action="UpdateRecipe" asp-controller="Home" method="post">
         <span asp-validation-for="Name"></span>
         <label asp-for="Name">Your Name</label>
         <input asp-for="Name" type="text" value="@Model.Name"/>

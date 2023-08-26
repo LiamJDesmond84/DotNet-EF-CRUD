@@ -64,7 +64,7 @@ public class HomeController : Controller
     public IActionResult EditDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
-        return View();
+        return View(dish);
     }
 
     [HttpPut("/Home/EditDish/{dishId}")]
