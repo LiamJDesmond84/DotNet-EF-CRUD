@@ -52,12 +52,18 @@ public class HomeController : Controller
     }
 
     // FIX THIS - https://www.tutorialsteacher.com/mvc/routing-in-mvc
-    [HttpGet("/{dishId}")]
+    [HttpGet("/Home/ViewDish/{dishId}")]
     public IActionResult ViewDish(int dishId)
     {
         Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
 
         return View(dish);
+    }
+
+    public IActionResult EditDish(int id)
+    {
+        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+        return View();
     }
 
 }
