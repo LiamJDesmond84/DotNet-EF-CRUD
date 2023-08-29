@@ -9,6 +9,7 @@
         <h1>Welcome to  Whateva</h1>
         <p style="margin-right: 50px">Recent Dishes</p>
         <a asp-controller="Home" asp-action="Form">Add a Dish</a>
+        <hr />
     </div>
 
     <ul style="list-style-type: none">
@@ -16,12 +17,11 @@
         @foreach (var x in Model)
         {
             <hr style="width: 300px; margin: auto" />
-            <li>@x.Name</li>
+            <li><a asp-controller="Home" asp-action="ViewDish" asp-route-id="@x.Id">@x.Name</a> by @x.Chef</li>
             <li>@x.Chef</li>
             <li>@x.Calories</li>
             <li>@x.Tastiness</li>
             <li>@x.Description</li>
-            <li><a asp-controller="Home" asp-action="ViewDish" asp-route-id="@x.Id">View</a></li>
             <li><a asp-controller="Home" asp-action="EditDish" asp-route-id="@x.Id">Edit</a></li>
         }
 
