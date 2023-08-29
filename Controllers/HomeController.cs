@@ -91,13 +91,13 @@ public class HomeController : Controller
     public IActionResult DeleteDish(int id)
     {
         // Like Update, we will need to query for a single user from our Context object
-        Monster? RetrievedUser = dbContext.Monsters.SingleOrDefault(x => x.MonsterId == id);
+        Dish? RetrievedUser = _dbContext.Dishes.SingleOrDefault(x => x.Id == id);
 
         // Then pass the object we queried for to .Remove() on Users
-        dbContext.Monsters.Remove(RetrievedUser);
+        _dbContext.Dishes.Remove(RetrievedUser);
 
         // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
-        dbContext.SaveChanges();
+        _dbContext.SaveChanges();
 
         return RedirectToAction("Index");
 
