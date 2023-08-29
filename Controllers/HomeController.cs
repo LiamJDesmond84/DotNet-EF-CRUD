@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using DotNet_EF_CRUD.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
+using System.Threading;
 
 namespace DotNet_EF_CRUD.Controllers;
 
@@ -83,6 +84,23 @@ public class HomeController : Controller
 
         _dbContext.SaveChanges();
         return RedirectToAction("Index");
+
+    }
+
+    [HttpDelete("/Home/DeleteDish/{Id}")]
+    public IActionResult DeleteDish(int id)
+    {
+        // Like Update, we will need to query for a single user from our Context object
+        Monster? RetrievedUser = dbContext.Monsters.SingleOrDefault(x => x.MonsterId == id);
+
+        // Then pass the object we queried for to .Remove() on Users
+        dbContext.Monsters.Remove(RetrievedUser);
+
+        // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
+        dbContext.SaveChanges();
+
+        return RedirectToAction("Index");
+
 
     }
 
