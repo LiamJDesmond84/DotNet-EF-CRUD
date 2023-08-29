@@ -90,11 +90,11 @@ public class HomeController : Controller
     [HttpDelete("/Home/DeleteDish/{Id}")]
     public IActionResult DeleteDish(int id)
     {
-        // Like Update, we will need to query for a single user from our Context object
-        Dish? RetrievedUser = _dbContext.Dishes.SingleOrDefault(x => x.Id == id);
+        // Like Update, we will need to query for a single Model/Object from our Context object
+        Dish? RetrievedObject = _dbContext.Dishes.SingleOrDefault(x => x.Id == id);
 
         // Then pass the object we queried for to .Remove() on Users
-        _dbContext.Dishes.Remove(RetrievedUser);
+        _dbContext.Dishes.Remove(RetrievedObject);
 
         // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
         _dbContext.SaveChanges();
