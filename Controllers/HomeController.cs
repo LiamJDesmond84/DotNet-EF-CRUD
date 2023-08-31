@@ -52,11 +52,11 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
-    // FIX THIS - https://www.tutorialsteacher.com/mvc/routing-in-mvc
-    [HttpGet("/Home/ViewDish/{dishId}")]
-    public IActionResult ViewDish(int dishId)
+    // FIXED THIS - https://www.tutorialsteacher.com/mvc/routing-in-mvc
+    [HttpGet]
+    public IActionResult ViewDish(int id)
     {
-        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
 
         return View(dish);
     }
