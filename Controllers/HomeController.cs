@@ -88,7 +88,7 @@ public class HomeController : Controller
     }
 
     //[HttpGet("/Home/DeleteDish/{dishId}")]
-    public IActionResult DeleteDish(int dishId)
+    public IActionResult DeleteDish()
     {
         // Like Update, we will need to query for a single Model/Object from our Context object
         Dish? RetrievedObject = _dbContext.Dishes.SingleOrDefault(x => x.Id == dishId);
