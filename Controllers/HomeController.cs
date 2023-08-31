@@ -69,10 +69,10 @@ public class HomeController : Controller
     }
 
 
-    [HttpPost("/Home/UpdateDish/{dishId}")]
-    public IActionResult UpdateDish(Dish dish, int dishId)
+    [HttpPost]
+    public IActionResult UpdateDish(Dish dish)
     {
-        Dish? currentDish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+        Dish? currentDish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dish.Id);
 
 
         currentDish.Name = dish.Name;
