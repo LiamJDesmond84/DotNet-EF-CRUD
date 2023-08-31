@@ -40,7 +40,6 @@ public class HomeController : Controller
 
     public IActionResult SubmitRecipe(Dish dish)
     {
-
         _dbContext.Add(dish);
         _dbContext.SaveChanges();
         Debug.WriteLine(dish.Name);
@@ -61,10 +60,9 @@ public class HomeController : Controller
         return View(dish);
     }
 
-    [HttpGet("/Home/EditDish/{dishId}")]
-    public IActionResult EditDish(int dishId)
+    public IActionResult EditDish(int id)
     {
-        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
         return View(dish);
     }
 
