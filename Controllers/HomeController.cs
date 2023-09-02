@@ -19,6 +19,8 @@ public class HomeController : Controller
         _dbContext = context;
     }
 
+
+    // View Index Page
     public IActionResult Index()
     {
 
@@ -26,17 +28,19 @@ public class HomeController : Controller
         return View(dishes);
     }
 
+    // View Create Page
     public IActionResult Form()
     {
         return View();
     }
 
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    // View Edit Page
+    public IActionResult EditDish(int id)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
+        return View(dish);
     }
+
 
     // Create
     public IActionResult SubmitRecipe(Dish dish)
@@ -57,11 +61,7 @@ public class HomeController : Controller
         return View(dish);
     }
 
-    public IActionResult EditDish(int id)
-    {
-        Dish? dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
-        return View(dish);
-    }
+
 
     // Update
     [HttpPost]
@@ -98,6 +98,14 @@ public class HomeController : Controller
         return RedirectToAction("Index");
 
 
+    }
+
+
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
 }
