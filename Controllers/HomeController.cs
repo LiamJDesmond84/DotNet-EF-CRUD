@@ -38,7 +38,7 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    
+    // Create
     public IActionResult SubmitRecipe(Dish dish)
     {
         _dbContext.Add(dish);
@@ -47,6 +47,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
+    // Read
     // https://www.tutorialsteacher.com/mvc/routing-in-mvc
     [HttpGet]
     public IActionResult ViewDish(int id)
@@ -62,7 +63,7 @@ public class HomeController : Controller
         return View(dish);
     }
 
-
+    // Update
     [HttpPost]
     public IActionResult UpdateDish(Dish dish)
     {
@@ -81,6 +82,7 @@ public class HomeController : Controller
 
     }
 
+    // Delete
     [HttpGet]
     public IActionResult DeleteDish(int id)
     {
