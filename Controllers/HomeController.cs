@@ -38,20 +38,16 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    
     public IActionResult SubmitRecipe(Dish dish)
     {
         _dbContext.Add(dish);
         _dbContext.SaveChanges();
-        Debug.WriteLine(dish.Name);
-        Debug.WriteLine(dish.Chef);
-        Debug.WriteLine(dish.Tastiness);
-        Debug.WriteLine(dish.Calories);
-        Debug.WriteLine(dish.Description);
 
         return RedirectToAction("Index");
     }
 
-    // FIXED THIS - https://www.tutorialsteacher.com/mvc/routing-in-mvc
+    // https://www.tutorialsteacher.com/mvc/routing-in-mvc
     [HttpGet]
     public IActionResult ViewDish(int id)
     {
